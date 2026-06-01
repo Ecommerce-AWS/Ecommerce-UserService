@@ -1,4 +1,4 @@
-﻿# Ecommerce-UserService
+# Ecommerce-UserService
 
 User management, JWT auth, RBAC, PostgreSQL
 
