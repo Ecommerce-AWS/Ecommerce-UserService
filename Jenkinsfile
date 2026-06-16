@@ -1,32 +1,19 @@
 pipeline {
   agent any
   options { timestamps() }
-
   stages {
     stage('Checkout') {
-      steps {
-        checkout scm
-      }
+      steps { checkout scm }
     }
-
     stage('Build') {
-      steps {
-        sh 'mvn clean package -DskipTests=false'
-      }
+      steps { sh 'mvn clean package -DskipTests=false' }
     }
-
     stage('Unit Test') {
-      steps {
-        sh 'mvn test'
-      }
+      steps { sh 'mvn test' }
     }
-
     stage('Static Check') {
-      steps {
-        sh 'echo SonarQube or static scan goes here'
-      }
+      steps { sh 'echo SonarQube or static scan goes here' }
     }
-
     stage('Docker Build') {
       when {
         anyOf {
